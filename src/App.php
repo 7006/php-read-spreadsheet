@@ -6,17 +6,29 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class App {
 
-  public static function main(){
+  public static function readSpreadsheet() {
     $inputFileType = 'Xlsx';
     $inputFileName = __DIR__ . '/../resources/Table.xlsx';
-    
+
     $reader = IOFactory::createReader($inputFileType);
     $spreadsheet = $reader->load($inputFileName);
-    
-    $dataArray = $spreadsheet->getActiveSheet()->toArray();
+    $table = $spreadsheet->getActiveSheet()->toArray();
+    return $table;
+  }
 
-    echo '<pre>';
-    var_dump($dataArray);
-    echo '</pre>';
+  public static function  renderSpreadSheet() {
+    
+    foreach ($this::readSpreadsheet() as $tableRow) { ?>
+      <table>
+        <tr>
+          <?php foreach ($tableRow as $tableColum) { ?>
+          <td>
+            <?php echo $tableColum; ?>
+          </td>
+          <?php } ?>
+          </tr>
+      </table>
+    <?php
+    }
   }
 }
