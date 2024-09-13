@@ -11,7 +11,7 @@ class App {
     self::renderSpreadSheet($table);
   }
 
-  public static function readSpreadSheet() {
+  private static function readSpreadSheet() {
     $inputFileType = 'Xlsx';
     $inputFileName = __DIR__ . '/../resources/Table.xlsx';
 
@@ -20,7 +20,7 @@ class App {
     return $spreadsheet->getActiveSheet()->toArray();
   }
 
-  public static function  renderSpreadSheet($table) {
+  private static function  renderSpreadSheet($table) {
     
     foreach ($table as $tableRow) { ?>
       <table>
