@@ -8,7 +8,7 @@ class App {
 
   public static function main() {
     App::readSpreadsheet();
-    App::readSpreadsheet();
+    App::renderSpreadSheet();
   }
 
   public static function readSpreadsheet() {
@@ -23,7 +23,7 @@ class App {
 
   public static function  renderSpreadSheet() {
     
-    foreach (App::readSpreadsheet() as $tableRow) { ?>
+    foreach (self::readSpreadsheet() as $tableRow) { ?>
       <table>
         <tr>
           <?php foreach ($tableRow as $tableColum) { ?>
