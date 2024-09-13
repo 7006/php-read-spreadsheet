@@ -7,8 +7,8 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 class App {
 
   public static function main() {
-    App::readSpreadsheet();
-    App::renderSpreadSheet();
+    $table = self::readSpreadsheet();
+    self::renderSpreadSheet($table);
   }
 
   public static function readSpreadsheet() {
@@ -17,13 +17,12 @@ class App {
 
     $reader = IOFactory::createReader($inputFileType);
     $spreadsheet = $reader->load($inputFileName);
-    $table = $spreadsheet->getActiveSheet()->toArray();
-    return $table;
+    return $spreadsheet->getActiveSheet()->toArray();
   }
 
-  public static function  renderSpreadSheet() {
+  public static function  renderSpreadSheet($table) {
     
-    foreach (self::readSpreadsheet() as $tableRow) { ?>
+    foreach ($table as $tableRow) { ?>
       <table>
         <tr>
           <?php foreach ($tableRow as $tableColum) { ?>
