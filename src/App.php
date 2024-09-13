@@ -6,6 +6,11 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class App {
 
+  public static function main() {
+    App::readSpreadsheet();
+    App::readSpreadsheet();
+  }
+
   public static function readSpreadsheet() {
     $inputFileType = 'Xlsx';
     $inputFileName = __DIR__ . '/../resources/Table.xlsx';
