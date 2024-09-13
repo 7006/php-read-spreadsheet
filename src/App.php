@@ -12,13 +12,11 @@ class App {
     
     $reader = IOFactory::createReader($inputFileType);
     $spreadsheet = $reader->load($inputFileName);
+    
+    $dataArray = $spreadsheet->getActiveSheet()->toArray();
 
-
-    //$dataArray = $worksheet->toArray();
-
-    // echo '<pre>';
-    // var_dump(get_class_methods($spreadsheet));
-    // echo '</pre>';
-    //$dataArray = $spreadsheet->toArray();
+    echo '<pre>';
+    var_dump($dataArray);
+    echo '</pre>';
   }
 }
