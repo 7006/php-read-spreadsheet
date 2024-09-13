@@ -18,7 +18,7 @@ class App {
 
   public static function  renderSpreadSheet() {
     
-    foreach ($this::readSpreadsheet() as $tableRow) { ?>
+    foreach (App::readSpreadsheet() as $tableRow) { ?>
       <table>
         <tr>
           <?php foreach ($tableRow as $tableColum) { ?>
